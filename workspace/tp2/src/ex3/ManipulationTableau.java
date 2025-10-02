@@ -1,9 +1,11 @@
 package ex3;
 
+import java.util.Random;
+
 public class ManipulationTableau {
-	public static int[] tableau;
-	public static int taille;
-	public static int max;
+	public int[] tableau;
+	public int taille;
+	public int max;
 	
 	public ManipulationTableau() {
 		this.taille = 20;
@@ -14,6 +16,7 @@ public class ManipulationTableau {
 	public ManipulationTableau(int[] tableau) {
 		this.tableau = tableau;
 		this.taille = tableau.length;
+		this.max = 0;
 	}
 	
 	public ManipulationTableau(int taille) {
@@ -24,20 +27,23 @@ public class ManipulationTableau {
 	
 
 	public ManipulationTableau(int taille, int max) {
-		this.taille = 20;
+		this.taille = taille;
 		this.max = max;
 		this.tableau = generateArray(taille, max);
 	}
 	
 	private int[] generateArray(int taille, int max) {
 		// TODO Auto-generated method stub
+		int[] tab = new int[taille];
+		Random rand = new Random();
+		
 		for (int i = 0 ; i < taille ; i++) {
-			tableau[i] = (int) (Math.random() * (max + 1));
+			tab[i] = rand.nextInt(max + 1);
 		}
-		return tableau;
+		return tab;
 	}
 	
-	public int sommeValeurTableau(int[] tableau) {
+	public int sommeValeurTableau() {
 		int val = 0;
 		
 		for (int i = 0 ; i < taille ; i++ ) {
@@ -45,6 +51,18 @@ public class ManipulationTableau {
 		}
 		
 		return val;
+	}
+	
+	public int[] getTableau() {
+		return this.tableau;
+	}
+	
+	public int getTaille() {
+		return this.taille;
+	}
+	
+	public int getMax() {
+		return this.max;
 	}
 
 }
