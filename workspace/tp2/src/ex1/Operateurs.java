@@ -105,17 +105,16 @@ public class Operateurs {
 						ps.print(a + " + " + b + " = " + resultat + "\n");
 					}
 				}
-				break; // Sortir de la boucle si succès
+				break;
 
 			} catch (NumberFormatException e) {
 				ps.println("Erreur: Veuillez entrer des nombres valides");
-				// Continue la boucle pour redemander
 			}
 		}
 	}
 
 	private static void effectuerDivision() throws IOException {
-		while (true) { // Boucle jusqu'à succès
+		while (true) {
 			try {
 				ps.print("Entrez votre division (format: nombre / nombre ou  nombre ÷ nombre): ");
 				String[] entree = readValues(is);
@@ -185,7 +184,7 @@ public class Operateurs {
 						ps.print((int) a + " " + ope + " " + b + " = " + resultat + "\n");
 					}
 				}
-				break; // Sortir de la boucle si succès
+				break;
 
 			} catch (NumberFormatException e) {
 				ps.println("Erreur: Veuillez entrer des nombres valides");
@@ -194,12 +193,11 @@ public class Operateurs {
 	}
 
 	private static void effectuerPerimetre() throws IOException {
-		while (true) { // Boucle jusqu'à succès
+		while (true) {
 			try {
 				ps.print("Entrez le diamètre ou le rayon (format: d=valeur ou r=valeur): ");
 				String[] input = readValues(is);
-				String ligne = String.join(" ", input).toLowerCase().trim().replaceAll("\\s+", ""); // Supprimer TOUS
-																									// les espaces
+				String ligne = String.join(" ", input).toLowerCase().trim().replaceAll("\\s+", ""); // Supprimer tous les espaces
 
 				if (ligne.startsWith("d=")) {
 					String valeurStr = ligne.substring(2).trim();
@@ -244,10 +242,6 @@ public class Operateurs {
 		}
 	}
 
-	/*
-	 * public static int calculerSommeInt(int a, int b) { return a + b; }
-	 */
-
 	public static double calculerSomme(double a, double b) {
 		return a + b;
 	}
@@ -261,7 +255,7 @@ public class Operateurs {
 	}
 
 	public static double calculerPerimetreAvecRayon(double rayon) {
-		return 2 * Math.PI * rayon; // CORRECTION: était 2 * calculerPerimetreAvecDiametre(rayon) ce qui était faux
+		return 2 * Math.PI * rayon;
 	}
 
 	private static String[] readValues(InputStream in) throws IOException {
