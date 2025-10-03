@@ -1,22 +1,60 @@
 package ex2;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class StructuresIteratives {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	private int nombre;
+	private int taille;
+	
+	public StructuresIteratives(int nombre) {
+		this.nombre = nombre;
+		this.taille = 0;
 	}
 	
-	private static String[] readValues(InputStream in) throws IOException {
-		InputStreamReader r = new InputStreamReader(in);
-		BufferedReader br = new BufferedReader(r);
-		String line = br.readLine();
-		String[] values = line.split(" ");
-		return values;
+	public int[] diviseurs() {
+		int taille = 0;
+		for (int i = 1 ; i <= nombre ; i++) {
+			if (nombre % i == 0) {
+				taille ++;
+			}
+		}
+		
+		int[] diviseurs = new int[taille];
+		int index = 0 ;
+		for (int i = 1 ; i <= nombre ; i++) {
+			if (nombre % i == 0) {
+				diviseurs[index] = i;
+				index++ ;
+			}
+		}
+		
+		return diviseurs;
+	}
+	
+	public int somme() {
+		int somme = 0;
+		int i = 1;
+		
+		while (i < nombre) {
+			if (i % 2 == 0) {
+				somme += i;
+			}
+			i++;
+		}
+		
+		return somme;
+	}
+
+	public int getNombre() {
+		// TODO Auto-generated method stub
+		return this.nombre;
+	}
+
+	public boolean estPremier() {
+		// TODO Auto-generated method stub
+		if (diviseurs().length == 2) {
+			return true;
+		}
+		return false;
 	}
 }
