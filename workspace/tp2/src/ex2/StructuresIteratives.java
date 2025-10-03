@@ -1,9 +1,8 @@
 package ex2;
 
-import java.util.ArrayList;
-
 public class StructuresIteratives {
 	private int nombre;
+	@SuppressWarnings("unused")
 	private int taille;
 	
 	public StructuresIteratives(int nombre) {
