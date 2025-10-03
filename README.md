@@ -2,4 +2,4 @@
 
 TP1: Setting Up + Hello world
 
-TP2: Syntax de base
+TP2: exercice 1 --> "Syntax de base" ; exercice 2 --> "Structures Itératives" ; exercice 3 --> "Manipulations des Tableaux" ; exercice 4 --> "Switch Case" ; exercice 5 --> "La Devinette"
