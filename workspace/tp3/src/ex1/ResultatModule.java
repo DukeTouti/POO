@@ -1,13 +1,23 @@
 package ex1;
 
 public class ResultatModule {
-	private int id;
-	private int cc;
-	private int tp;
-	private int exam;
+	private static int compteur = 1;
 	
-	public ResultatModule() {
+	private int id;
+	private double cc;
+	private double tp;
+	private double exam;
+	
+	private static final double COEF_CC = 0.3;
+	private static final double COEF_TP = 0.2;
+	private static final double COEF_EXAM = 0.5;
+	
+	public ResultatModule(double cc, double tp, double exam) {
 		// TODO Auto-generated constructor stub
+		this.id = compteur++;
+		this.cc = cc;
+		this.tp = tp;
+		this.exam = exam;
 	}
 
 	public int getId() {
@@ -18,28 +28,35 @@ public class ResultatModule {
 		this.id = id;
 	}
 
-	public int getCc() {
+	public double getCc() {
 		return cc;
 	}
 
-	public void setCc(int cc) {
+	public void setCc(double cc) {
 		this.cc = cc;
 	}
 
-	public int getTp() {
+	public double getTp() {
 		return tp;
 	}
 
-	public void setTp(int tp) {
+	public void setTp(double tp) {
 		this.tp = tp;
 	}
 
-	public int getExam() {
+	public double getExam() {
 		return exam;
 	}
 
-	public void setExam(int exam) {
+	public void setExam(double exam) {
 		this.exam = exam;
 	}
+	
+	public double calculeMoyenne() {
+		return (cc * COEF_CC) + (tp * COEF_TP) + (exam * COEF_EXAM);
+	}
 
+	public boolean valideModule() {
+		return calculeMoyenne() >= 10;
+	}
 }
