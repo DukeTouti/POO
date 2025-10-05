@@ -51,5 +51,17 @@ public class AnneeEtudiant {
 		
 		return somme / nb_modules;
 	}
+	
+	public int nombreValides() {
+		int cmpt = 0;
+		
+		for (int i = 0 ; i < nb_modules ; i++) {
+			if (modules[i].valideModule()) {
+				cmpt++;
+			}
+		}
+		
+		return cmpt;
+	}
 
 }
