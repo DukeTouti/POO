@@ -1,33 +1,33 @@
 package ex1;
 
 public class AnneeEtudiant {
-	private int idEtudiant;
-	private int nbModules;
+	private int id_etudiant;
+	private int nb_modules;
 	private ResultatModule[] modules;
 	
 	private static final int MAX_MODULES = 20;
 
-	public AnneeEtudiant(int idEtudiant) {
+	public AnneeEtudiant(int id_etudiant) {
 		// TODO Auto-generated constructor stub
-		this.setIdEtudiant(idEtudiant);
-		this.setNbModules(0);
-		this.setModules(new ResultatModule[MAX_MODULES]);
+		this.id_etudiant = id_etudiant;
+		this.nb_modules = 0;
+		this.modules = new ResultatModule[MAX_MODULES];
 	}
 
 	public int getIdEtudiant() {
-		return idEtudiant;
+		return id_etudiant;
 	}
 
-	public void setIdEtudiant(int idEtudiant) {
-		this.idEtudiant = idEtudiant;
+	public void setIdEtudiant(int id_etudiant) {
+		this.id_etudiant = id_etudiant;
 	}
 
 	public int getNbModules() {
-		return nbModules;
+		return nb_modules;
 	}
 
-	public void setNbModules(int nbModules) {
-		this.nbModules = nbModules;
+	public void setNbModules(int nb_modules) {
+		this.nb_modules = nb_modules;
 	}
 
 	public ResultatModule[] getModules() {
@@ -36,6 +36,20 @@ public class AnneeEtudiant {
 
 	public void setModules(ResultatModule[] modules) {
 		this.modules = modules;
+	}
+	
+	public double moyenneAnnee() {
+		if (nb_modules == 0) {
+			return 0;
+		}
+		
+		double somme = 0;
+		
+		for (int i = 0 ; i < nb_modules ; i++) {
+			somme += modules[i].calculeMoyenne();
+		}
+		
+		return somme / nb_modules;
 	}
 
 }
