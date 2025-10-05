@@ -1,7 +1,7 @@
 package ex1;
 
 public class ResultatModule {
-	private static int compteur = 1;
+	private static int cmpt = 1;
 	
 	private int id;
 	private double cc;
@@ -14,7 +14,7 @@ public class ResultatModule {
 	
 	public ResultatModule(double cc, double tp, double exam) {
 		// TODO Auto-generated constructor stub
-		this.id = compteur++;
+		this.id = cmpt++;
 		this.cc = cc;
 		this.tp = tp;
 		this.exam = exam;
