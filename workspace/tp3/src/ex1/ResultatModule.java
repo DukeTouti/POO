@@ -3,7 +3,7 @@ package ex1;
 public class ResultatModule {
 	private static int cmpt = 1;
 	
-	private int id;
+	private int idModule;
 	private double cc;
 	private double tp;
 	private double exam;
@@ -14,18 +14,18 @@ public class ResultatModule {
 	
 	public ResultatModule(double cc, double tp, double exam) {
 		// TODO Auto-generated constructor stub
-		this.id = cmpt++;
+		this.idModule = cmpt++;
 		this.cc = cc;
 		this.tp = tp;
 		this.exam = exam;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdModule() {
+		return idModule;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdModule(int idModule) {
+		this.idModule = idModule;
 	}
 
 	public double getCc() {
