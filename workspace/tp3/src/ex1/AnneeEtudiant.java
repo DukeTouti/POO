@@ -1,7 +1,5 @@
 package ex1;
 
-import java.util.Arrays;
-
 public class AnneeEtudiant {
 	private int id_etudiant;
 	private int nb_modules;
@@ -40,31 +38,29 @@ public class AnneeEtudiant {
 		this.modules = modules;
 	}
 	
-	@Override
-	public String toString() {
-		return "AnneeEtudiant [id_etudiant = " + id_etudiant + ", nb_modules = " + nb_modules + ", modules = "
-				+ Arrays.toString(modules) + "]";
-	}
-	
 	public double moyenneAnnee() {
 		if (nb_modules == 0) {
 			return 0;
 		}
 		
 		double somme = 0;
+		int cmpt = 0;
 		
-		for (int i = 0 ; i < nb_modules ; i++) {
-			somme += modules[i].calculeMoyenne();
+		for (int i = 0 ; i < modules.length ; i++) {
+			if (modules[i] != null) {
+				somme += modules[i].calculeMoyenne();
+				cmpt++;
+			}
 		}
 		
-		return somme / nb_modules;
+		return somme / cmpt;
 	}
 	
 	public int nombreValides() {
 		int cmpt = 0;
 		
-		for (int i = 0 ; i < nb_modules ; i++) {
-			if (modules[i].valideModule()) {
+		for (int i = 0 ; i < modules.length ; i++) {
+			if (modules[i] != null && modules[i].valideModule()) {
 				cmpt++;
 			}
 		}
