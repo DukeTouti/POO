@@ -41,6 +41,17 @@ public class CompteBancaire {
 				+ solde_client + "]";
 	}
 	
-	
+	public boolean retrait(int montant) {
+		if (montant > 0 && montant <= solde_client) {
+			solde_client -= montant;
+			return true;
+		}
+		return false;
+	}
 
+	public void depot(int montant) {
+		if (montant > 0) {
+			solde_client += montant;
+		}
+	}
 }
