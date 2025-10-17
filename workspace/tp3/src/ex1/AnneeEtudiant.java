@@ -1,5 +1,7 @@
 package ex1;
 
+import java.util.Arrays;
+
 public class AnneeEtudiant {
 	private int id_etudiant;
 	private int nb_modules;
@@ -36,6 +38,12 @@ public class AnneeEtudiant {
 
 	public void setModules(ResultatModule[] modules) {
 		this.modules = modules;
+	}
+	
+	@Override
+	public String toString() {
+		return "AnneeEtudiant [id_etudiant = " + id_etudiant + ", nb_modules = " + nb_modules + ", modules = "
+				+ Arrays.toString(modules) + "]";
 	}
 	
 	public double moyenneAnnee() {
