@@ -60,8 +60,10 @@ public class AnneeEtudiant {
 		int cmpt = 0;
 		
 		for (int i = 0 ; i < modules.length ; i++) {
-			if (modules[i] != null && modules[i].valideModule()) {
-				cmpt++;
+			if (modules[i] != null) {
+				if (modules[i].valideModule()) {
+					cmpt++;
+				}
 			}
 		}
 		
