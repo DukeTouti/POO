@@ -80,7 +80,6 @@ public class MainInterface {
 			return;
 		}
 
-		// Saisir les informations
 		ps.print("\n--> Nom : ");
 		String[] nomInput = Keyboard.readValues(is);
 		String nom = String.join(" ", nomInput);
@@ -93,7 +92,6 @@ public class MainInterface {
 		String[] salaireInput = Keyboard.readValues(is);
 		double salaire = Double.parseDouble(salaireInput[0]);
 
-		// Créer l'employé
 		if (type == 1) {
 			employes.add(new EmployeServiceTechnique(nom, prenom, salaire));
 			ps.println("\n  Employé Service Technique ajouté !");
