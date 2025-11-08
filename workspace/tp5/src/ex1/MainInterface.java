@@ -70,7 +70,7 @@ public class MainInterface {
 		ps.println("\nType d'employé :");
 		ps.println(" 1 - Service Technique (6%)");
 		ps.println(" 2 - Service Administratif (7%)");
-		ps.print("--> Votre choix : ");
+		ps.print("-->Votre choix : ");
 
 		String[] typeInput = Keyboard.readValues(is);
 		int type = Integer.parseInt(typeInput[0]);
