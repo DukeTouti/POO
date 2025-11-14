@@ -25,6 +25,7 @@ public class Main {
 		ps.println(" - rechercher : rechercher un étudiant par code");
 		ps.println(" - trier : trier la liste par code");
 		ps.println(" - supprimer : supprimer un étudiant");
+		ps.println(" - filtrer : filtrer par filière/spécialité");
 		ps.println(" - vider : supprimer tous les étudiants");
 		ps.println(" - quit : quitter le programme");
 		ps.println("====================================");
@@ -43,7 +44,7 @@ public class Main {
 						choixValide = true;
 					} else {
 						ps.println("    Opération non reconnue !");
-						ps.println("  Veuillez choisir parmi : ajouter, afficher, rechercher, trier, supprimer, vider, demo, quit");
+						ps.println("  Veuillez choisir parmi : ajouter, afficher, rechercher, trier, supprimer, filtrer, vider, quit");
 					}
 					
 				} catch (Exception e) {
@@ -73,6 +74,10 @@ public class Main {
 					supprimerEtudiant();
 					break;
 					
+				case "filtrer":
+					filtrerParSpecialite();
+					break;
+					
 				case "vider":
 					viderListe();
 					break;
@@ -87,7 +92,7 @@ public class Main {
 	
 	private static boolean estChoixValide(String choix) {
 		String[] choixValides = {"ajouter", "afficher", "rechercher", "trier", 
-		                         "supprimer", "vider", "demo", "quit"};
+		                         "supprimer", "filtrer", "vider", "quit"};
 		
 		for (String c : choixValides) {
 			if (c.equals(choix)) {
@@ -159,7 +164,7 @@ public class Main {
 	}
 	
 	private static void rechercherEtudiant() throws IOException {
-		ps.println("\n=== RECHERCHER PAR CODE (MÉTHODE STATIQUE Q2) ===");
+		ps.println("\n=== RECHERCHER PAR CODE ===");
 		
 		if (listeEtudiants.isEmpty()) {
 			ps.println("  Aucun étudiant dans la liste.");
@@ -193,7 +198,7 @@ public class Main {
 	
 	@SuppressWarnings("unchecked")
 	private static void trierEtudiants() {
-		ps.println("\n=== TRIER LA LISTE (MÉTHODE STATIQUE Q2) ===");
+		ps.println("\n=== TRIER LA LISTE ===");
 		
 		if (listeEtudiants.isEmpty()) {
 			ps.println("  Aucun étudiant dans la liste.");
@@ -229,27 +234,51 @@ public class Main {
 	}
 	
 	private static void supprimerEtudiant() throws IOException {
+	    ps.println("\n=== SUPPRIMER UN ÉTUDIANT ===");
+	    
+	    if (listeEtudiants.isEmpty()) {
+	        ps.println("  Aucun étudiant à supprimer.");
+	        return;
+	    }
+	    
+	    Etudiant.affichage(listeEtudiants);
+	    
+	    ps.print("\n--> Code de l'étudiant à supprimer : ");
+	    try {
+	        String[] codeInput = Keyboard.readValues(is);
+	        int code = Integer.parseInt(codeInput[0]);
+	        
+	        Etudiant.supprimerEtudiant(listeEtudiants, code);
+	        
+	    } catch (NumberFormatException e) {
+	        ps.println("  Erreur : entrez un nombre valide !");
+	    }
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static void filtrerParSpecialite() throws IOException {
+		ps.println("\n=== FILTRER PAR FILIÈRE ===");
+		
 		if (listeEtudiants.isEmpty()) {
-			ps.println("\n  Aucun étudiant à supprimer.");
+			ps.println("  Aucun étudiant dans la liste.");
 			return;
 		}
 		
-		Etudiant.affichage(listeEtudiants);
+		ps.print("\n--> Nom de la filière/spécialité : ");
+		String[] filiereInput = Keyboard.readValues(is);
+		String filiere = String.join(" ", filiereInput);
 		
-		ps.print("\n--> Numéro de l'étudiant à supprimer : ");
-		try {
-			String[] numInput = Keyboard.readValues(is);
-			int num = Integer.parseInt(numInput[0]);
+		List<Etudiant> listeFiltre = Etudiant.listeSpecialite(listeEtudiants, filiere);
+		
+		if (listeFiltre.isEmpty()) {
+			ps.println("\n  Aucun étudiant trouvé dans la filière : " + filiere);
+		} else {
+			ps.println("\n=== Étudiants en " + filiere + " ===");
+			ps.println("Nombre total : " + listeFiltre.size());
 			
-			if (num > 0 && num <= listeEtudiants.size()) {
-				Etudiant supprime = listeEtudiants.get(num - 1);
-				listeEtudiants.remove(num - 1);
-				ps.println("\n    Étudiant supprimé : " + supprime.nom + " " + supprime.prenom);
-			} else {
-				ps.println("\n    Numéro invalide !");
+			for (int i = 0; i < listeFiltre.size(); i++) {
+				ps.println("[ " + (i + 1) + " ] " + listeFiltre.get(i));
 			}
-		} catch (NumberFormatException e) {
-			ps.println("  Erreur : entrez un nombre valide !");
 		}
 	}
 	

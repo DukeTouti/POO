@@ -51,14 +51,44 @@ public class Etudiant {
 			ps.println("[ " + (i + 1) + " ] " + liste.get(i));
 		}
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public static List trierListe(List<Etudiant> liste) {
 		List<Etudiant> liste_triee = new ArrayList<>(liste);
-		
+
 		liste_triee.sort((etudiant1, etudiant2) -> Integer.compare(etudiant1.code, etudiant2.code));
-		
+
 		return liste_triee;
+	}
+
+	public static void supprimerEtudiant(List<Etudiant> l, int code) {
+		boolean supprime = false;
+
+		for (int i = 0; i < l.size(); i++) {
+			if (l.get(i).code == code) {
+				Etudiant etudiantSupprime = l.get(i);
+				l.remove(i);
+				ps.println("  Étudiant supprimé : " + etudiantSupprime);
+				supprime = true;
+				break;
+			}
+		}
+
+		if (!supprime) {
+			ps.println("  Aucun étudiant trouvé avec le code " + code);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static List listeSpecialite(List<Etudiant> l, String spe) {
+		List<Etudiant> listeFiliere = new ArrayList<>();
+		
+		for(Etudiant etudiant : l) {
+			if (etudiant.filiere.equalsIgnoreCase(spe)) {
+				listeFiliere.add(etudiant);
+			}
+		}
+		return listeFiliere;
 	}
 
 }
