@@ -1,5 +1,10 @@
 package models;
 
+/* ****************************** *
+ * Classe représentant un patient *
+ * Hérite de Utilisateur          *
+ * ****************************** */
+
 public class Patient extends Utilisateur {
 
 	/* Attributs spécifiques aux patients */
