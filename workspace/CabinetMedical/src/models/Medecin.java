@@ -1,5 +1,10 @@
 package models;
 
+/* ****************************** *
+ * Classe représentant un médecin *
+ * Hérite de Utilisateur          *
+ * ****************************** */
+
 public class Medecin extends Utilisateur{
 	
 	private String specialite;
