@@ -148,9 +148,6 @@ public abstract class Utilisateur {
 	/* Retourne le rôle de l'utilisateur ("MEDECIN", "ASSISTANTE" ou "PATIENT") */
 	public abstract String getRole();
 
-	/* Affiche les informations spécifiques de l'utilisateur */
-	public abstract void afficherInfos();
-
 	/* Retourne le libellé complet pour les listes et menus déroulants */
 	public abstract String getLibelle();
 
