@@ -1,5 +1,10 @@
 package models;
 
+/* ********************************** *
+ * Classe représentant une assistante *
+ * Hérite de Utilisateur              *
+ * ********************************** */
+
 public class Assistante extends Utilisateur {
 
 	public Assistante(int id, String nom, String prenom, String login, String mdp) {
