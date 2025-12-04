@@ -1,11 +1,8 @@
 package models;
 
-import java.io.PrintStream;
-
 public class Medecin extends Utilisateur{
 	
 	private String specialite;
-	PrintStream ps = System.out;
 
 	/* Constructeur complet (utilisé lors de la récupération depuis la base de donnée) */
 	public Medecin(int id, String nom, String prenom, String login, String mdp, String specialite) {
