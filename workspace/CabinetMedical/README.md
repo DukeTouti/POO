@@ -29,10 +29,11 @@ CabinetMedical/
 │   │   ├── Patient.java                          # Implemented
 │   │   ├── Consultation.java
 │   │   ├── Categorie.java                        # Implemented
-│   │   ├── RendezVous.java                       # Prochaine Class à implémenter
+│   │   ├── StatutRDV.java                        # Implemented
+│   │   ├── RendezVous.java                       # Implemented
 │   │   ├── FicheSoins.java
-│   │   ├── Acte.java
-│   │   ├── Code.java
+│   │   ├── Acte.java                             # Imlpemented
+│   │   ├── Code.java                             # Implemented
 │   │   └── Date.java                             # Implemented
 │   │
 │   ├── controllers/                              # Logique métier
