@@ -27,11 +27,12 @@ CabinetMedical/
 │   │   ├── Medecin.java                          # Implemented
 │   │   ├── Assistante.java                       # Implemented
 │   │   ├── Patient.java                          # Implemented
-│   │   ├── Consultation.java
+│   │   ├── Consultation.java                     # Implemented
+│   │   ├── Keyboard.java                         # Implemented
 │   │   ├── Categorie.java                        # Implemented
 │   │   ├── StatutRDV.java                        # Implemented
 │   │   ├── RendezVous.java                       # Implemented
-│   │   ├── FicheSoins.java
+│   │   ├── TestModels.java                       # Implemented
 │   │   ├── Acte.java                             # Imlpemented
 │   │   ├── Code.java                             # Implemented
 │   │   └── Date.java                             # Implemented
