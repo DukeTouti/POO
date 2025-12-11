@@ -27,11 +27,11 @@ public class Acte {
 		this.code = code;
 	}
 
-	public int getCoefficiant() {
+	public int getCoefficient() {
 		return coefficient;
 	}
 
-	public void setCoefficiant(int coefficient) {
+	public void setCoefficient(int coefficient) {
 		this.coefficient = coefficient;
 	}
 	
