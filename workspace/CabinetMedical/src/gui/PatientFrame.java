@@ -101,12 +101,12 @@ public class PatientFrame extends JFrame {
         JPanel leftButtonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
         leftButtonsPanel.setOpaque(false);
         
-        JButton btnProfil = createStyledButton("👤 Profil", Color.BLACK);
+        JButton btnProfil = createStyledButton("Profil", Color.BLACK);
         btnProfil.addActionListener(e -> afficherProfil());
         leftButtonsPanel.add(btnProfil);
         
         // --- BOUTON DECONNEXION ---
-        JButton btnDeconnexion = createStyledButton("🚪 Déconnexion", Color.BLACK);
+        JButton btnDeconnexion = createStyledButton("Déconnexion", Color.RED);
         btnDeconnexion.addActionListener(e -> {
             // Utilisation de la méthode stylée et centrée avec tes commentaires
             afficherPopupDeconnexion();
@@ -116,7 +116,7 @@ public class PatientFrame extends JFrame {
         // Label central avec le nom du patient
         JLabel lblNomPatient = new JLabel("Bienvenue, " + patient.getPrenom() + " !", SwingConstants.CENTER);
         lblNomPatient.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        lblNomPatient.setForeground(Color.WHITE);
+        lblNomPatient.setForeground(Color.BLACK);
         
         topPanel.add(leftButtonsPanel, BorderLayout.WEST);
         topPanel.add(lblNomPatient, BorderLayout.CENTER);
@@ -144,7 +144,7 @@ public class PatientFrame extends JFrame {
         rdvPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); 
         
         // TITRE
-        JLabel lblTitreRDV = new JLabel("📅 PRENDRE UN RENDEZ-VOUS");
+        JLabel lblTitreRDV = new JLabel("PRENDRE UN RENDEZ-VOUS");
         lblTitreRDV.setForeground(Color.WHITE);
         lblTitreRDV.setFont(new Font("Segoe UI", Font.BOLD, 16));
         lblTitreRDV.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -152,7 +152,7 @@ public class PatientFrame extends JFrame {
         rdvPanel.add(Box.createVerticalStrut(20));
         
         // === 1. RECHERCHE MÉDECIN/SPÉCIALITÉ ===
-        JLabel lblRecherche = new JLabel("🔍 Rechercher un médecin ou une spécialité :");
+        JLabel lblRecherche = new JLabel("Rechercher un médecin ou une spécialité :");
         lblRecherche.setForeground(Color.WHITE);
         lblRecherche.setAlignmentX(Component.LEFT_ALIGNMENT);
         rdvPanel.add(lblRecherche);
@@ -196,7 +196,7 @@ public class PatientFrame extends JFrame {
         });
         
         // === 2. CALENDRIER DATE ===
-        JLabel lblDate = new JLabel("📆 Choisissez la date :");
+        JLabel lblDate = new JLabel("Choisissez la date :");
         lblDate.setForeground(Color.WHITE);
         lblDate.setAlignmentX(Component.LEFT_ALIGNMENT);
         rdvPanel.add(lblDate);
@@ -213,7 +213,7 @@ public class PatientFrame extends JFrame {
         rdvPanel.add(Box.createVerticalStrut(15));
         
         // === 3. SÉLECTEUR D'HEURE ===
-        JLabel lblHeure = new JLabel("🕐 Choisissez l'heure :");
+        JLabel lblHeure = new JLabel("Choisissez l'heure :");
         lblHeure.setForeground(Color.WHITE);
         lblHeure.setAlignmentX(Component.LEFT_ALIGNMENT);
         rdvPanel.add(lblHeure);
@@ -234,7 +234,7 @@ public class PatientFrame extends JFrame {
         rdvPanel.add(Box.createVerticalStrut(15));
         
         // === 4. MOTIF ===
-        JLabel lblMotif = new JLabel("📝 Motif de la consultation :");
+        JLabel lblMotif = new JLabel("Motif de la consultation :");
         lblMotif.setForeground(Color.WHITE);
         lblMotif.setAlignmentX(Component.LEFT_ALIGNMENT);
         rdvPanel.add(lblMotif);
@@ -250,7 +250,7 @@ public class PatientFrame extends JFrame {
         rdvPanel.add(Box.createVerticalStrut(20));
         
         // === 5. BOUTON CONFIRMER ===
-        JButton btnConfirmerRDV = createStyledButton("✅ Confirmer le rendez-vous", Color.WHITE);
+        JButton btnConfirmerRDV = createStyledButton("Confirmer le rendez-vous", Color.WHITE);
         btnConfirmerRDV.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnConfirmerRDV.addActionListener(e -> creerRendezVous());
         rdvPanel.add(btnConfirmerRDV);
@@ -279,7 +279,7 @@ public class PatientFrame extends JFrame {
         JPanel panelRDVList = new JPanel(new BorderLayout());
         panelRDVList.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
-        JLabel lblTitreRDVList = new JLabel("📋 Mes Rendez-vous", SwingConstants.CENTER);
+        JLabel lblTitreRDVList = new JLabel("Mes Rendez-vous", SwingConstants.CENTER);
         lblTitreRDVList.setFont(new Font("Segoe UI", Font.BOLD, 16));
         panelRDVList.add(lblTitreRDVList, BorderLayout.NORTH);
         
@@ -302,12 +302,12 @@ public class PatientFrame extends JFrame {
         // Boutons d'action sur RDV
         JPanel panelActionsRDV = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         
-        JButton btnActualiser = new JButton("🔄 Actualiser");
+        JButton btnActualiser = new JButton("Actualiser");
         btnActualiser.setFont(POLICE_TITRE);
         btnActualiser.addActionListener(e -> chargerMesRDV());
         panelActionsRDV.add(btnActualiser);
         
-        JButton btnAnnuler = new JButton("❌ Annuler RDV sélectionné");
+        JButton btnAnnuler = new JButton("Annuler RDV sélectionné");
         btnAnnuler.setFont(POLICE_TITRE);
         btnAnnuler.addActionListener(e -> annulerRDVSelectionne());
         panelActionsRDV.add(btnAnnuler);
@@ -320,7 +320,7 @@ public class PatientFrame extends JFrame {
         JPanel panelConsultations = new JPanel(new BorderLayout());
         panelConsultations.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
-        JLabel lblTitreConsult = new JLabel("🏥 Mes Consultations passées", SwingConstants.CENTER);
+        JLabel lblTitreConsult = new JLabel("Mes Consultations passées", SwingConstants.CENTER);
         lblTitreConsult.setFont(new Font("Segoe UI", Font.BOLD, 16));
         panelConsultations.add(lblTitreConsult, BorderLayout.NORTH);
         
@@ -590,7 +590,7 @@ public class PatientFrame extends JFrame {
             Calendar calHeure = Calendar.getInstance();
             calHeure.setTime(heureSpinner);
             
-            // ✅ CRÉER UN SEUL OBJET Date AVEC TOUT (date + heure + minute)
+            // CRÉER UN SEUL OBJET Date AVEC TOUT (date + heure + minute)
             models.Date dateRdvComplete = new models.Date(
                 calDate.get(Calendar.DAY_OF_MONTH),
                 calDate.get(Calendar.MONTH) + 1,
@@ -615,9 +615,9 @@ public class PatientFrame extends JFrame {
             
             if (succes) {
                 JOptionPane.showMessageDialog(this, 
-                    "✅ Rendez-vous créé avec succès !\n\n" +
-                    "📅 Date : " + dateRdvComplete.toString() + "\n" +
-                    "👨‍⚕️ Médecin : Dr. " + medecinSelectionne.getNomComplet(),
+                    "Rendez-vous créé avec succès !\n\n" +
+                    "Date : " + dateRdvComplete.toString() + "\n" +
+                    "Médecin : Dr. " + medecinSelectionne.getNomComplet(),
                     "Succès", 
                     JOptionPane.INFORMATION_MESSAGE);
                 
@@ -630,7 +630,7 @@ public class PatientFrame extends JFrame {
                 chargerMesRDV();
             } else {
                 JOptionPane.showMessageDialog(this, 
-                    "❌ Erreur lors de la création du RDV",
+                    "Erreur lors de la création du RDV",
                     "Erreur", 
                     JOptionPane.ERROR_MESSAGE);
             }
@@ -662,11 +662,11 @@ public class PatientFrame extends JFrame {
             for (RendezVous rdv : mesRDV) {
                 models.Date dateRdv = rdv.getDateRdv();
                 
-                // ✅ Formater la date sans heure
+                // Formater la date sans heure
                 String dateStr = String.format("%02d/%02d/%04d", 
                     dateRdv.getJour(), dateRdv.getMois(), dateRdv.getAnnee());
                 
-                // ✅ Formater l'heure
+                // Formater l'heure
                 String heureStr = String.format("%02d:%02d", 
                     dateRdv.getHeure(), dateRdv.getMinute());
                 
@@ -727,13 +727,13 @@ public class PatientFrame extends JFrame {
                     
                     if (succes) {
                         JOptionPane.showMessageDialog(this, 
-                            "✅ Rendez-vous annulé avec succès",
+                            "Rendez-vous annulé avec succès",
                             "Succès", 
                             JOptionPane.INFORMATION_MESSAGE);
                         chargerMesRDV();
                     } else {
                         JOptionPane.showMessageDialog(this, 
-                            "❌ Erreur lors de l'annulation",
+                            "Erreur lors de l'annulation",
                             "Erreur", 
                             JOptionPane.ERROR_MESSAGE);
                     }
@@ -764,7 +764,7 @@ public class PatientFrame extends JFrame {
             for (Consultation c : consultations) {
                 models.Date dateConsult = c.getDateConsultation();
                 
-                // ✅ Formater la date/heure complète
+                // Formater la date/heure complète
                 String dateHeureStr = String.format("%02d/%02d/%04d à %02d:%02d",
                     dateConsult.getJour(), dateConsult.getMois(), dateConsult.getAnnee(),
                     dateConsult.getHeure(), dateConsult.getMinute());
@@ -799,17 +799,17 @@ public class PatientFrame extends JFrame {
                 details.append("═══════════════════════════════════════\n\n");
                 
                 models.Date dateRdv = c.getRendezVous().getDateRdv();
-                details.append("📅 Date : ").append(dateRdv.toString()).append("\n\n");
+                details.append("    Date : ").append(dateRdv.toString()).append("\n\n");
                 
-                details.append("👨‍⚕️ Médecin : Dr. ").append(c.getRendezVous().getMedecin().getNomComplet())
+                details.append("    Médecin : Dr. ").append(c.getRendezVous().getMedecin().getNomComplet())
                         .append(" (").append(c.getRendezVous().getMedecin().getSpecialite()).append(")\n\n");
                 
                 if (c.getCategorie() != null) {
-                    details.append("🏷️ Catégorie : ").append(c.getCategorie().getDesignation()).append("\n\n");
+                    details.append("    Catégorie : ").append(c.getCategorie().getDesignation()).append("\n\n");
                 }
                 
-                details.append("📝 Description :\n");
-                details.append(c.getDescription() != null ? c.getDescription() : "Aucune description").append("\n\n");
+                details.append("    Description :\n");
+                details.append(c.getDescription() != null ? "      " + c.getDescription() : "Aucune description").append("\n\n");
                 
                 details.append("───────────────────────────────────────\n");
                 details.append("      ACTES MÉDICAUX RÉALISÉS\n");
@@ -827,7 +827,7 @@ public class PatientFrame extends JFrame {
                 }
                 
                 details.append("\n═══════════════════════════════════════\n");
-                details.append("💰 COÛT TOTAL : ").append(String.format("%.2f€", c.coutTotal())).append("\n");
+                details.append("  COÛT TOTAL : ").append(String.format("%.2f€", c.coutTotal())).append("\n");
                 details.append("═══════════════════════════════════════\n");
                 
                 txtDetailsConsultation.setText(details.toString());

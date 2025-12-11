@@ -110,7 +110,7 @@ public class MedecinFrame extends JFrame {
         // Label central avec le nom du médecin
         JLabel lblNomMedecin = new JLabel("Dr. " + medecin.getNomComplet() + " - " + medecin.getSpecialite(), SwingConstants.CENTER);//Texte centre
         lblNomMedecin.setFont(new Font("Segoe UI", Font.BOLD, 18));//Police
-        lblNomMedecin.setForeground(Color.WHITE);//Couleur
+        lblNomMedecin.setForeground(Color.BLACK);//Couleur
         
         topPanel.add(leftButtonsPanel, BorderLayout.WEST);//Boutons a gauche
         topPanel.add(lblNomMedecin, BorderLayout.CENTER);//Nom au centre

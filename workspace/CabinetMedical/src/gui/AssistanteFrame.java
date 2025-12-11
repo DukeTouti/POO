@@ -126,7 +126,7 @@ public class AssistanteFrame extends JFrame {
         //On CENTRE LE TEXTE avec SwingConstants.CENTER
         JLabel lblNom = new JLabel("Assistante - " + assistante.getNomComplet(), SwingConstants.CENTER);
         lblNom.setFont(new Font("Segoe UI", Font.BOLD, 18));//Style de la police
-        lblNom.setForeground(Color.WHITE);//Texte de couleur blanche
+        lblNom.setForeground(Color.BLACK);//Texte de couleur noire
         
         //On rajoute le boutton et label
         topPanel.add(leftButtonsPanel, BorderLayout.WEST);//PLace a gauche
