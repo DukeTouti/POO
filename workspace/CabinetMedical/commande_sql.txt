@@ -1,0 +1,204 @@
+========================================
+      PROJET JAVA CABINET MÉDICAL
+Script de création de la base de données
+========================================
+
+/* 1. CRÉATION DE LA BASE DE DONNÉES */
+
+CREATE DATABASE projet_java_cabinet;
+USE projet_java_cabinet;
+
+/* ========================================
+ *         2. CRÉATION DES TABLES
+ * ========================================
+ */
+
+/* Table utilisateurs (parent pour tous les utilisateurs) */
+
+CREATE TABLE utilisateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    login VARCHAR(50) UNIQUE NOT NULL,
+    mdp VARCHAR(100) NOT NULL,
+    role ENUM('MEDECIN', 'PATIENT', 'ASSISTANTE') NOT NULL
+);
+
+/* Table médecins */
+
+CREATE TABLE medecins (
+    utilisateur_id INT PRIMARY KEY,
+    specialite VARCHAR(100) NOT NULL,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+);
+
+*/ Table patients */
+
+CREATE TABLE patients (
+    utilisateur_id INT PRIMARY KEY,
+    telephone VARCHAR(20),
+    email VARCHAR(100),
+    numero_secu VARCHAR(15),
+    adresse TEXT,
+    date_naissance DATE,
+    lieu_naissance VARCHAR(100),
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+);
+
+/* Table assistantes */
+
+CREATE TABLE assistantes (
+    utilisateur_id INT PRIMARY KEY,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+);
+
+/* Table rendez-vous */
+
+CREATE TABLE rendez_vous (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
+    medecin_id INT NOT NULL,
+    date_rdv DATE NOT NULL,
+    heure_rdv TIME NOT NULL,
+    motif TEXT,
+    statut ENUM('PLANIFIE', 'CONFIRME', 'ANNULE', 'TERMINE') DEFAULT 'PLANIFIE',
+    FOREIGN KEY (patient_id) REFERENCES patients(utilisateur_id) ON DELETE CASCADE,
+    FOREIGN KEY (medecin_id) REFERENCES medecins(utilisateur_id) ON DELETE CASCADE
+);
+
+/* Table catégories de consultation */
+
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    designation VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+/* Table consultations */
+
+CREATE TABLE consultations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    rendez_vous_id INT NOT NULL,
+    date_consultation DATE NOT NULL,
+    categorie_id INT,
+    description TEXT,
+    prix_consultation DECIMAL(10, 2),
+    FOREIGN KEY (rendez_vous_id) REFERENCES rendez_vous(id) ON DELETE CASCADE,
+    FOREIGN KEY (categorie_id) REFERENCES categories(id) ON DELETE SET NULL
+);
+
+/* Table actes médicaux (NGAP) */
+
+CREATE TABLE consultation_actes (
+    consultation_id INT NOT NULL,
+    code VARCHAR(10) NOT NULL,
+    coefficient INT NOT NULL,
+    PRIMARY KEY (consultation_id, code),
+    FOREIGN KEY (consultation_id) REFERENCES consultations(id) ON DELETE CASCADE
+);
+
+/* ========================================
+ *    3. INSERTION DES DONNÉES DE TEST
+ * ========================================
+ */
+ 
+/* MÉDECINS */
+
+INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
+VALUES ('SEMLALI', 'Amine', 'semlalia', '123', 'MEDECIN');
+INSERT INTO medecins (utilisateur_id, specialite) 
+VALUES (LAST_INSERT_ID(), 'Chirurgie');
+
+INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
+VALUES ('BENSALAH', 'Mariam', 'bensalahm', '123', 'MEDECIN');
+INSERT INTO medecins (utilisateur_id, specialite) 
+VALUES (LAST_INSERT_ID(), 'Cardiologie');
+
+/* ASSISTANTE */
+INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
+VALUES ('BELAL', 'Anaïs', 'belala', '123', 'ASSISTANTE');
+INSERT INTO assistantes (utilisateur_id) 
+VALUES (LAST_INSERT_ID());
+
+/* PATIENTS */
+INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
+VALUES ('BECK', 'Julien', 'beckj', 'pass', 'PATIENT');
+INSERT INTO patients (utilisateur_id, telephone, email, numero_secu, adresse, date_naissance, lieu_naissance) 
+VALUES (LAST_INSERT_ID(), '0611111111', 'julien.beck@email.com', '195051012345678', 
+        'Mulhouse', '2002-01-18', 'Mulhouse');
+
+INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
+VALUES ('TAKOINI', 'Marwane', 'takoinim', 'pass', 'PATIENT');
+INSERT INTO patients (utilisateur_id, telephone, email, numero_secu, adresse, date_naissance, lieu_naissance) 
+VALUES (LAST_INSERT_ID(), '0698765432', 'marwane.takoini@email.com', '203051112345678', 
+        '11 Rue Anthoard, 38000 Grenoble', '2004-02-18', 'Grenoble');
+
+INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
+VALUES ('HATHOUTI', 'Mohammed Taha', 'hathouti', 'pass', 'PATIENT');
+INSERT INTO patients (utilisateur_id, telephone, email, numero_secu, adresse, date_naissance, lieu_naissance) 
+VALUES (LAST_INSERT_ID(), '0653513522', 'taha.hathouti@email.com', '200051212345678', 
+        '5 rue du Tour de l'Eau, 38400 Saint-Martin-d'Hères', '2003-05-26', 'Saint-Martin-d'Hères');
+
+INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
+VALUES ('AUBAMEYANG', 'Pierre-Emeric', 'aubameyang', 'pass', 'PATIENT');
+INSERT INTO patients (utilisateur_id, telephone, email, numero_secu, adresse, date_naissance, lieu_naissance) 
+VALUES (LAST_INSERT_ID(), '0645678901', 'pierre.auba@email.com', '189051312345678', 
+        'Libreville', '1989-06-18', 'Libreville');
+
+/* CATÉGORIES DE CONSULTATION */
+
+INSERT INTO categories (designation, description) VALUES
+('Consultation normale', 'Consultation médicale standard'),
+('Contrôle', 'Consultation de suivi'),
+('Urgence', 'Consultation en urgence');
+
+/* RENDEZ-VOUS DE TEST */
+INSERT INTO rendez_vous (patient_id, medecin_id, date_rdv, heure_rdv, motif, statut) VALUES
+(4, 2, '2025-12-25', '14:30:00', 'Examen cardiologique', 'PLANIFIE'),
+(5, 1, '2025-12-26', '10:00:00', 'Consultation chirurgie', 'CONFIRME');
+
+/* ========================================
+ *    4. CRÉATION DE L'UTILISATEUR MYSQL
+ * ========================================
+ */
+ 
+/* Créer un utilisateur pour l'application */
+
+CREATE USER 'cabinet_user'@'localhost' IDENTIFIED BY 'cabinet123';
+
+/* Donner tous les droits sur la base projet_java_cabinet */
+
+GRANT ALL PRIVILEGES ON projet_java_cabinet.* TO 'cabinet_user'@'localhost';
+
+/* Appliquer les changements */
+FLUSH PRIVILEGES;
+
+/* ========================================
+ *             5. VÉRIFICATIONS
+ * ========================================
+ */
+ 
+/* Vérifier les tables créées */
+
+SHOW TABLES;
+
+/* Vérifier les utilisateurs */
+
+SELECT * FROM utilisateurs;
+
+/* Vérifier la structure de rendez_vous */
+
+DESCRIBE rendez_vous;
+
+/* Vérifier l'utilisateur MySQL créé */
+
+SELECT User, Host FROM mysql.user WHERE User = 'cabinet_user';
+
+
+
+
+
+
+
+
+
