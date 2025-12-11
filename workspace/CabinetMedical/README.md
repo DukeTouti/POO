@@ -23,47 +23,35 @@ CabinetMedical/
 │
 ├── src/
 │   ├── models/                                   # Entités et classes métier
-│   │   ├── Utilisateur.java                      # Implemented
-│   │   ├── Medecin.java                          # Implemented
-│   │   ├── Assistante.java                       # Implemented
-│   │   ├── Patient.java                          # Implemented
-│   │   ├── Consultation.java                     # Implemented
-│   │   ├── Keyboard.java                         # Implemented
-│   │   ├── Categorie.java                        # Implemented
-│   │   ├── StatutRDV.java                        # Implemented
-│   │   ├── RendezVous.java                       # Implemented
-│   │   ├── TestModels.java                       # Implemented
-│   │   ├── Acte.java                             # Imlpemented
-│   │   ├── Code.java                             # Implemented
-│   │   └── Date.java                             # Implemented
+│   │   ├── Utilisateur.java
+│   │   ├── Medecin.java
+│   │   ├── Assistante.java
+│   │   ├── Patient.java
+│   │   ├── Consultation.java
+│   │   ├── Keyboard.java
+│   │   ├── Categorie.java
+│   │   ├── StatutRDV.java
+│   │   ├── RendezVous.java
+│   │   ├── TestModels.java
+│   │   ├── Acte.java
+│   │   ├── Code.java
+│   │   └── Date.java
 │   │
 │   ├── controllers/                              # Logique métier
 │   │   ├── AuthController.java
 │   │   ├── PatientController.java
 │   │   ├── ConsultationController.java
+│   │   ├── CategorieController.java
+│   │   ├── MedecinController.java
+│   │   ├── AssistanteController.java
 │   │   └── RendezVousController.java
 │   │
 │   ├── gui/                                      # Interfaces graphiques
 │   │   ├── LoginFrame.java
-│   │   │
-│   │   ├── patient/                              # Interface Patient
-│   │   │   ├── PatientMainFrame.java
-│   │   │   ├── PrendreRDV.java
-│   │   │   ├── MesRDVPanel.java
-│   │   │   └── HistoriquePanel.java
-│   │   │
-│   │   ├── assistante/                           # Interface Assistante
-│   │   │   ├── AssistanteMainFrame.java
-│   │   │   ├── GestionRDVPanel.java
-│   │   │   ├── GestionPatientsPanel.java
-│   │   │   └── ValidationPaiementPanel.java
-│   │   │
-│   │   └── medecin/                              # Interface Médecin
-│   │       ├── MedecinMainFrame.java
-│   │       ├── ConsultationForm.java
-│   │       ├── FicheSoins.java
-│   │       ├── ConsultationsJourPanel.java
-│   │       └── StatistiquesPanel.java
+│   │   ├── IntermediateFrame.java
+│   │   ├── PatientFrame.java
+│   │   ├── AssistanteFrame.java
+│   │   └── MedecinFrame.java
 │   │
 │   └── Main.java                                 # MAIN
 
@@ -75,12 +63,12 @@ CabinetMedical/
 
 ### Équipe de Développement
 
-- Étudiant 1 : [HATHOUTI Mohammed Taha]
-- Étudiant 2 : [JIDAL Ilyas]  
-- Étudiant 3 : [KABORE Mohammed Sharif Jonathan]
+- Étudiant 1 : HATHOUTI Mohammed Taha
+- Étudiant 2 : JIDAL Ilyas  
+- Étudiant 3 : KABORE Mohammed Sharif Jonathan
 
 ---
 
 Projet académique - ESIN 3A - UIR - 2025
 
-**Dernière mise à jour** : 04 Décembre 2025
+**Dernière mise à jour** : 11 Décembre 2025
