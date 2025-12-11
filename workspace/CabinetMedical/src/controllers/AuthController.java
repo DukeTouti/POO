@@ -13,9 +13,9 @@ import java.sql.*;
 public class AuthController {
 	
 	/* Configuration de la base de données */
-	private static final String URL = "jdbc:mysql://localhost:3306/projet_java";
-	private static final String USER_BD = "root";
-	private static final String MDP_BD = "";
+	private static final String URL = "jdbc:mysql://localhost:3306/projet_java_cabinet";
+	private static final String USER_BD = "cabinet_user";
+	private static final String MDP_BD = "cabinet123";
 	
 	/* ========== CONNEXION À LA BASE DE DONNÉES ========== */
 	
@@ -41,9 +41,15 @@ public class AuthController {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		
+		System.out.println("=== DEBUG AUTHENTIFICATION ===");
+	    System.out.println("Login reçu: " + login);
+	    System.out.println("MDP reçu: " + mdp);
+		
 		try {
 			/* Se connecter à la BD */
 			conn = getConnection();
+			
+			System.out.println("✓ Connexion BD réussie !");
 			
 			/* Requête pour vérifier login/mdp et récupérer le role */
 			String query = "SELECT * FROM utilisateurs WHERE login = ? AND mdp = ?";
@@ -51,10 +57,13 @@ public class AuthController {
 			pst.setString(1, login);
 			pst.setString(2, mdp);
 			
+			System.out.println("✓ Requête préparée: " + query);
+			
 			rs = pst.executeQuery();
 			
 			/* Si utilisateur trouvé */
 			if (rs.next()) {
+				System.out.println("✓ Utilisateur trouvé dans la BD !");
 				int id = rs.getInt("id");
 				String nom = rs.getString("nom");
 				String prenom = rs.getString("prenom");
