@@ -128,22 +128,10 @@ VALUES (LAST_INSERT_ID(), '0611111111', 'julien.beck@email.com', '19505101234567
         'Mulhouse', '2002-01-18', 'Mulhouse');
 
 INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
-VALUES ('TAKOINI', 'Marwane', 'takoinim', 'pass', 'PATIENT');
-INSERT INTO patients (utilisateur_id, telephone, email, numero_secu, adresse, date_naissance, lieu_naissance) 
-VALUES (LAST_INSERT_ID(), '0698765432', 'marwane.takoini@email.com', '203051112345678', 
-        '11 Rue Anthoard, 38000 Grenoble', '2004-02-18', 'Grenoble');
-
-INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
 VALUES ('HATHOUTI', 'Mohammed Taha', 'hathouti', 'pass', 'PATIENT');
 INSERT INTO patients (utilisateur_id, telephone, email, numero_secu, adresse, date_naissance, lieu_naissance) 
 VALUES (LAST_INSERT_ID(), '0653513522', 'taha.hathouti@email.com', '200051212345678', 
         '5 rue du Tour de l'Eau, 38400 Saint-Martin-d'Hères', '2003-05-26', 'Saint-Martin-d'Hères');
-
-INSERT INTO utilisateurs (nom, prenom, login, mdp, role) 
-VALUES ('AUBAMEYANG', 'Pierre-Emeric', 'aubameyang', 'pass', 'PATIENT');
-INSERT INTO patients (utilisateur_id, telephone, email, numero_secu, adresse, date_naissance, lieu_naissance) 
-VALUES (LAST_INSERT_ID(), '0645678901', 'pierre.auba@email.com', '189051312345678', 
-        'Libreville', '1989-06-18', 'Libreville');
 
 /* CATÉGORIES DE CONSULTATION */
 
